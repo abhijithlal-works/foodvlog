@@ -1,0 +1,51 @@
+{% load static %}
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"><link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+</head>
+<body id="top">
+<!-- Top Background Image Wrapper -->
+<!--<div class="bgded overlay" style="background-image:url('{% static 'hm/images/demo/backgrounds/bg4.jpg' %});">-->
+  <div class="wrapper row1">
+    <header id="header" class="hoc clear">
+      <div id="logo" class="fl_left">
+        <!-- ################################################################################################ -->
+        <h1><a href="/">FOOD SHOPPING</a></h1>
+        <!-- ################################################################################################ -->
+      </div>
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li class="active"><a href="/">HOME</a></li>
+
+          <li><a class="drop" href="{% url 'cartDetails' %}">Cart &nbsp;<sup>{{itc}} </sup> </a>
+          {% if user.is_authenticated %}
+          <li>Hai {{user.first_name}}</li>
+          <li><a class="drop" href="{% url 'logout' %}">Logout</a>
+          {% else %}
+          <li><a class="drop" href="{% url 'login' %}">Login</a>
+          <li><a class="drop" href="{% url 'register' %}">Register</a>
+          {% endif %}
+
+
+
+
+
+
+
+          </li>
+
+        </ul>
+        <!-- ################################################################################################ -->
+      </nav>
+    </header>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

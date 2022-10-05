@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="">
+<!-- To declare your language - read more here: https://www.w3.org/International/questions/qa-html-language-declarations -->
+<head>
+<title>Sislaf</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'hm/layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<style>
+  .abcd{
+        height:100%;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:cover;
+
+
+
+  }
+
+   .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+<!--  padding-left: 56px;-->
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+</head>
+<body id="top">
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- Top Background Image Wrapper -->
+<div class="abcd" style="background-image:url({% static 'hm/images/demo/backgrounds/food1.jpg' %});">
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+  <!-- ################################################################################################ -->
+  <!-- ################################################################################################ -->
+
+      <div class="wrapper row0">
+    <div id="topbar" class="hoc clear">
+
+      <div class="fl_right">
+        <!-- ################################################################################################ -->
+        <ul class="nospace">
+          <li id="searchform">
+            <div>
+              <form action="{% url 'search' %}" method="get">
+                <fieldset>
+                  <legend>Quick Search:</legend>
+                  <input type="text" placeholder="Enter item name to search" name="q">
+                  <button type="submit"><i class="fas fa-search"></i></button>
+                </fieldset>
+              </form>
+            </div>
+          </li>
+        </ul>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+  </div>
+
+  <div class="dropdown">
+  <button class="dropbtn">FILTER</button>
+  <div class="dropdown-content">
+
+
+  <a href="/">All</a>
+     {% for i in ct %}
+  <a href="{{i.get_url}}">{{i.name}}</a>
+
+    {% endfor %}
+  </div>
+</div>
+
+  <!-- ################################################################################################ -->
+  <div id="pageintro" class="hoc clear">
+    <!-- ################################################################################################ -->
+    <article>
+      <h3 class="heading">quality food items</h3>
+      <p>Register with us and have food items</p>
+
+    </article>
+    <!-- ################################################################################################ -->
+  </div>
+  <!-- ################################################################################################ -->
+</div>
+<!-- End Top Background Image Wrapper -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!--<div class="wrapper row3">-->
+<!--  <main class="hoc container clear">-->
+<!--    &lt;!&ndash; main body &ndash;&gt;-->
+<!--    &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--    <section id="introblocks">-->
+<!--&lt;!&ndash;      <ul class="nospace group btmspace-80">&ndash;&gt;-->
+
+<!--        <div  class="col-md-12">-->
+<!--        {% for i in pr %}-->
+<!--        <div class="col-md-3 row " style="margin-right:10px;">-->
+<!--&lt;!&ndash;        <li class="one_third first">&ndash;&gt;-->
+<!--          <figure><a class="imgover" href="#"><img src="{{i.img.url}}" style="height:500; width:500;" alt=""></a>-->
+<!--            <figcaption>-->
+<!--              <h6 class="heading">{{i.name}}</h6>-->
+<!--              <p>{{i.desc }}.</p>-->
+<!--            </figcaption>-->
+<!--          </figure>-->
+<!--&lt;!&ndash;        </li>&ndash;&gt;</div>-->
+<!--        {% endfor %}-->
+<!--        </div>-->
+
+<!--&lt;!&ndash;      </ul>&ndash;&gt;-->
+<!--    </section>-->
+<!--    &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--    <hr class="btmspace-80">-->
+<!--    &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+
+<!--    &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--    &lt;!&ndash; / main body &ndash;&gt;-->
+<!--    <div class="clear"></div>-->
+<!--  </main>-->
+<!--</div>-->
+
+
+
+<!--<div class="wrapper row3">-->
+<!--  <main class="hoc container clear">-->
+<!--    &lt;!&ndash; main body &ndash;&gt;-->
+<!--    &lt;!&ndash; ################################################################################################ &ndash;&gt;-->
+<!--    <section id="introblocks">-->
+<!--&lt;!&ndash;      <ul class="nospace group btmspace-80">&ndash;&gt;-->
+
+
+<!--<div class="row product_data">-->
+
+<!--    {% for i in pr %}-->
+<!--    {% csrf_token %}-->
+
+<!--    <div class="col-md-3">-->
+
+<!--        <div class="card card-product-grid">-->
+
+<!--        <a href="/}" class="img-wrap">-->
+
+<!--            <img src="{{i.img.url}}" style="height:500; width:500;" alt=""></a>-->
+
+<!--        <figcaption class="info-wrap">-->
+
+<!--            <a href="{{ product.get_url }}" class="title"><h6>{{ i.name }}</h6></a>-->
+
+<!--            <div class="price mt-2">{{i.desc}}-->
+
+<!--            </div> &lt;!&ndash; price-wrap.// &ndash;&gt;-->
+
+<!--</figcaption>-->
+<!--    &lt;!&ndash; <a href="#" class="btn btn-block btn-primary">Add to cart </a> &ndash;&gt;-->
+<!--</div>-->
+
+<!--</div> &lt;!&ndash; col.// &ndash;&gt;-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<!--    </section>-->
+<!--  </main>-->
+<!--</div>-->
+
+
+
+
+
+
+<!--<div class="category">-->
+
+<!--  {% for i in ct %}-->
+
+<!--  <b style="color:white;">-->
+<!--    <a href="{{i.get_url}}">{{i.name}}</a><br>-->
+<!--  </b>-->
+
+<!--  {% endfor %}-->
+
+<!--</div>-->
+
+<div class="wrapper row3">
+  <main class="hoc container clear">
+    <!-- main body -->
+<!--     ################################################################################################ -->
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80">
+          {% for i in pr %}
+        <li class="one_third">
+          <figure><a class="imgover" href="{{i.get_url}}"><img src="{{i.img.url}}" alt="" style="height:250; width:250;"></a>
+            <figcaption>
+              <h6 class="heading">{{i.name}}</h6>
+              <p>{{i.desc | truncatewords:17}}</p>
+              <br>
+
+            </figcaption>
+          </figure>
+        </li>
+          {% endfor %}
+      </ul>
+    </section>
+
+      <center>
+<!--          {%for p in pr.paginator.page_range %}-->
+<!--          <a href="page={{p}}" class="btn btn-light btn-sm {% if pr.number == p %} active {% endif %}">{{p}}</a>-->
+
+
+
+
+<!--          {% endfor %}-->
+
+<!-- paginator ################################################################################################ -->
+
+        {% if pr.has_other_pages %}
+        <ul class="pagination">
+          {% if pr.has_previous %}
+        <li><a href="?page={{pr.previous_page_number}}">&laquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+
+          {% for i in pr.paginator.page_range %}
+            {% if pr.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+          <li><a href="?page={{ i }}">{{ i }} </a> </li>
+          {% endif %}
+          {% endfor %}
+          {% if pr.has_next %}
+          <li><a href="?page={{ pr.next_page_number }}">&laquo;</a></li>
+          {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+          {% endif %}
+        </ul>
+        {% endif %}
+    </center>
+
+
+
+    <!-- ################################################################################################ -->
+    <hr class="btmspace-80">
+    <!-- ################################################################################################ -->
+
+    <!-- ################################################################################################ -->
+    <!-- / main body -->
+    <div class="clear"></div>
+  </main>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- JAVASCRIPTS -->
+<script src="{% static 'hm/layout/scripts/jquery.min.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.backtotop.js' %}"></script>
+<script src="{% static 'hm/layout/scripts/jquery.mobilemenu.js' %}"></script>
+</body>
+</html>
+{% endblock %}
+
